@@ -49,9 +49,9 @@ multiple Stages.
    ```
 
    You will now have a `guestbook` container image repository. e.g.:
-   https://github.com/yourgithubusername/guestbook/pkgs/container/guestbook
+   https://github.com/users/yourgithubusername/packages/container/package/guestbook
 
-5. Change guestbook container image repository to public.
+6. Change guestbook container image repository to public.
 
    In the GitHub UI, navigate to the "guestbook" container repository, Package 
    settings, and change the visibility of the package to public. This will allow
@@ -60,33 +60,33 @@ multiple Stages.
 
    ![change-package-visibility](docs/change-package-visibility.png)
 
-6. Download and install the latest CLI from [Kargo Releases](https://github.com/akuity/kargo/releases) and Argo CD:
+7. Download and install the latest CLI from [Kargo Releases](https://github.com/akuity/kargo/releases) and Argo CD:
 
    ```shell
    ./download-cli.sh /usr/local/bin/kargo
    ```
 
-7. Login to Kargo and Argo CD:
+8. Login to Kargo and Argo CD:
 
    ```shell
    kargo login https://<kargo-url> --admin
    argocd login <argocd-hostname>
    ```
 
-8. Create the Argo CD `guestbook` Project and Applications
+9. Create the Argo CD `guestbook` Project and Applications
 
    ```shell
    argocd proj create -f ./argocd/appproj.yaml
    argocd appset create ./argocd/appset.yaml
    ```
 
-9. Create the Kargo resources
+10. Create the Kargo resources
 
    ```shell
    kargo apply -f ./kargo
    ```
 
-10. Add git repository credentials to Kargo (replace `<yourgithubusername>`
+11. Add git repository credentials to Kargo (replace `<yourgithubusername>`
     with your username).
 
     ```shell
@@ -100,7 +100,7 @@ multiple Stages.
     As part of the promotion process, Kargo requires privileges to commit changes
     to your Git repository. Ensure that the given token has these privileges.
 
-11. Promote the image!
+12. Promote the image!
 
     You now have a Kargo Pipeline which promotes images from the guestbook
     container image repository, through a multi-stage deploy pipeline.
