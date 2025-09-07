@@ -15,10 +15,7 @@ spec:
         app: guestbook
     spec:
       containers:
-      - env:
-        - name: FOO
-          value: bar
-        image: ghcr.io/extimsu/guestbook:v0.0.3
+      - image: ghcr.io/extimsu/guestbook:v0.0.4
         name: guestbook
         ports:
         - containerPort: 3000
